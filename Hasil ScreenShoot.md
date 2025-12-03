@@ -1,2 +1,15 @@
 Hasil Screenshoot nomor 1 = 
-<img width="1119" height="573" alt="Screenshot 2025-12-03 214344" src="https://github.com/user-attachments/assets/3d10a05c-668e-40c9-8971-ba6182356e80" />
+<img width="853" height="674" alt="image" src="https://github.com/user-attachments/assets/0ba61f14-fb20-4904-a8ee-bbcba56e05fe" />
+
+
+Hasil Screenshoot nomor 2 = 
+
+Hasil Screenshoot nomor 3 = 
+
+Hasil Screenshoot nomor 4 = 
+
+Hasil Screenshoot nomor 5 = 
+
+Hasil Screenshoot nomor 6 = 
+
+Hasil Screenshoot nomor 7 = 
