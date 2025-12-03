@@ -10,7 +10,7 @@ public class UKL2025Sem1 {
     public static void main(String[] args) {
         Scanner masukan = new Scanner(System.in);
         Random rndm = new Random();
-        System.out.println("Pilih mau level berapa = ");
+        System.out.println("Pilih mau soal nomor berapa = ");
         int nomor = masukan.nextInt();
         switch (nomor) {
             case 1:
@@ -166,8 +166,8 @@ public class UKL2025Sem1 {
                     masukan.nextLine();
 
                     int daduKomputer = rndm.nextInt(6) + 1;
-
-                    int daduPemain = rndm.nextInt(6) + 1;
+                    System.out.println("Masukan nilai dadu kamu ");
+                    int daduPemain = masukan.nextInt();
 
                     // buiat nyimpan hasil lemparan ke dalam arraylist
                     historyKomputer.add(daduKomputer);
@@ -220,14 +220,14 @@ public class UKL2025Sem1 {
 
                 System.out.println("Masukan judul buku yang mau kamu pinjam = ");
                 judul = masukan.nextLine();
-                System.out.println("Masukan kategori buku yang mau kamu pinjam = ");
+                System.out.println("Masukan kategori buku yang mau kamu pinjam = (A/B/C/D) ");
                 kategoriBuku = masukan.nextLine();
                 System.out.println("berapa lama kamu mau minjam (hari) = ");
                 lama = masukan.nextDouble();
 
                 double A = 2000,
                  B = 1500,
-                 C = 100;
+                 C = 100, D=500;
                 switch (kategoriBuku) {
                     case "A":
                         hargaperhari = A;
@@ -237,6 +237,9 @@ public class UKL2025Sem1 {
                         break;
                     case "C":
                         hargaperhari = C;
+                        break;
+                        case "D":
+                        hargaperhari = D;
                         break;
 
                     default:
