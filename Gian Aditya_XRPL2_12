@@ -1,0 +1,398 @@
+
+package com.mycompany.ukl2025sem1;
+
+import java.util.Scanner;
+import java.util.Random;
+import java.util.ArrayList;
+
+public class UKL2025Sem1 {
+
+    public static void main(String[] args) {
+        Scanner masukan = new Scanner(System.in);
+        Random rndm = new Random();
+        System.out.println("Pilih mau level berapa = ");
+        int nomor = masukan.nextInt();
+        switch (nomor) {
+            case 1:
+                boolean mau = true;
+                while (mau) {
+                    System.out.println("Masukan Bilangan = ");
+
+                    int n,
+                            i;
+
+                    n = masukan.nextInt();
+                    boolean prima = true;
+                    if (n <= 1) {
+                        prima = false;
+                    } else {
+                        for (i = 2; i < n; i++) {
+                            if (n % i == 0) {
+                                prima = false;
+                                break;
+                            }
+
+                        }
+
+                    }
+                    if (prima == true) {
+                        System.out.println("Angka " + n + " adalah bilangan PRIMA");
+                    } else {
+                        System.out.println("Angka " + n + " bukan bilangan PRIMA");
+                    }
+
+                    System.out.println("MAU LANJUT ATAU TIDAK  YA/Tidak");
+                    String tdk;
+                    tdk = masukan.nextLine();
+                    tdk = masukan.nextLine();
+
+                    if (tdk.equalsIgnoreCase("tidak")) {
+                        mau = false;
+                        System.out.println("TERIMAKASIH");
+                    }
+                }
+
+                break;
+
+            case 2:
+                int[] money = {100000, 50000, 20000, 10000, 5000, 2000, 1000, 500, 200, 100, 50, 10, 1};
+                System.out.println("Masukkan Uang : ");
+                int uang = masukan.nextInt();//int uang buat nyimpen uangnya berapa
+                for (int b = 0; b < money.length; b++) {
+                    int lembar = uang / money[b];//int lembar buat nyimpen nanti butuh berapa lembarr di bagi berapa
+                    uang = uang % money[b];
+
+                    if (lembar > 0) {
+                        if (money[b] > 6) {
+                            System.out.println(lembar + " lembar " + money[b]);
+                        } else if (money[b] <= 6) {
+                            System.out.println(lembar + " koin " + money[b]);
+                        }
+
+                    }
+                }
+                break;
+            case 3:
+                int angka1,
+                 angka2,
+                 oprt;
+                boolean lanjut = true;
+                while (lanjut) {
+                    angka1 = rndm.nextInt(10) + 1; // angka antara 1–10
+                    angka2 = rndm.nextInt(10) + 1;
+                    System.out.println("Masukan operator yang kamu mau  ");
+                    System.out.println("ketik 0 jika Kali | ketik 1 jika bagi | ketik 2 jika modulus | ketik 3 jika tambah | ketik 4 jika kurang  ");
+                    oprt = masukan.nextInt(); // 0 = kali, 1 = bagi, 2 = modulus, 3 = tambah, 4 = kurang
+                    int jawabanbenar = 0;
+                    String soal = "";
+                    switch (oprt) {
+                        case 0:
+                            soal = angka1 + " X " + angka2;
+                            jawabanbenar = angka1 * angka2;
+                            break; // break sangat penting di sini
+                        case 1:
+                            soal = angka1 + " : " + angka2;
+                            jawabanbenar = angka1 / angka2;
+                            break;
+                        case 2:
+                            soal = angka1 + " % " + angka2;
+                            jawabanbenar = angka1 % angka2;
+                            break;
+                        case 3:
+                            soal = angka1 + " + " + angka2;
+                            jawabanbenar = angka1 + angka2;
+                            break;
+                        case 4:
+                            soal = angka1 + " - " + angka2;
+                            jawabanbenar = angka1 - angka2;
+                            break;
+                        default: {
+                            lanjut = false;
+                            return;
+                        }
+                    }
+                    System.out.println("Berapa hasil dari: " + soal + " ?");
+                    int jawabanuser = masukan.nextInt();
+                    if (jawabanuser == jawabanbenar) {
+                        System.out.println("SELAMAATTT JAWABAN KAMU BENARRRR !!!");
+                    } else {
+                        System.out.println("SAYANG SEKALI JAWABAN KAMU SALAH, jawaban yang benar adalahhh : " + jawabanbenar);
+                    }
+                    System.out.println();//baris kosong
+                    System.out.println("Mau lanjut kuis? (ya/tidak)");
+                    masukan.nextLine(); // ditambahi soalnya tadi ngebug
+                    String pilihan = masukan.nextLine();
+
+                    if (pilihan.equalsIgnoreCase("tidak")) {
+                        lanjut = false;
+                        System.out.println("THANKYOU");
+                    }
+                }
+                break;
+            case 4:
+                System.out.println("Masukan mau berapa angka yang kamu buat di ARRAY?");
+                int jmlh = masukan.nextInt();
+                int[] ARY = new int[jmlh];
+                for (int c = 0; c < jmlh; c++) {
+                    System.out.print("Masukkan angka ke-" + (c + 1) + ": ");
+                    ARY[c] = masukan.nextInt();
+                }
+                boolean adaDuplikat = false;
+                for (int d = 0; d < ARY.length; d++) {
+                    for (int j = d + 1; j < ARY.length; j++) {
+                        if (ARY[d] == ARY[j]) {
+                            System.out.println("ADA DUPLIKAT : " + ARY[d]);
+                            adaDuplikat = true;
+                        }
+                    }
+                }
+                if (!adaDuplikat) { //arti ! disini adalah "Jika tidak ada duplikat"    
+                    System.out.println("TIDAK ADA DUPLIKATT");
+                }
+
+                break;
+            case 5:
+                ArrayList<Integer> historyKomputer = new ArrayList<>();
+
+                ArrayList<Integer> historyPemain = new ArrayList<>();
+
+                int skorKomputer = 0;
+                int skorPemain = 0;
+
+                // Loop permainan hingga salah satu skor mencapai 5
+                while (skorKomputer < 5 && skorPemain < 5) {
+                    masukan.nextLine();//ditambahi soalnya tadi bug
+                    System.out.print("Tekan apa saja untuk melempar dadu... ");
+                    masukan.nextLine();
+
+                    int daduKomputer = rndm.nextInt(6) + 1;
+
+                    int daduPemain = rndm.nextInt(6) + 1;
+
+                    // buiat nyimpan hasil lemparan ke dalam arraylist
+                    historyKomputer.add(daduKomputer);
+                    historyPemain.add(daduPemain);
+
+                    System.out.println("\nNilai dadu komputer : " + daduKomputer);
+                    System.out.println("Nilai dadu pemain   : " + daduPemain);
+
+                    if (daduPemain > daduKomputer) {
+                        skorPemain++;
+                        System.out.println(" Yang menang di ronde ini adalah USER!!!");
+                    } else if (daduKomputer > daduPemain) {
+                        skorKomputer++;
+                        System.out.println(" Yang  menang ronde ini adalab KOMPUTERR!!!!");
+                    } else {
+                        System.out.println(" Seri!");
+                    }
+
+                    System.out.println("Skor sementara Pemain: " + skorPemain + "  Komputer: " + skorKomputer);
+
+                }
+                System.out.println();//baris kosong lagi
+                String pemenang = (skorPemain > skorKomputer) ? "PEMAIN" : "KOMPUTER";
+                System.out.println("Pemenangnya adalah: " + pemenang);
+
+                System.out.println();//bariss kosonggg 
+
+                System.out.println(" REKAP LEMPARAN");
+                System.out.println("Riwayat lemparan komputer : " + historyKomputer);
+                System.out.println("Riwayat lemparan pemain   : " + historyPemain);
+                System.out.println();
+
+                System.out.println("Total SKOR komputer: " + skorKomputer);
+                System.out.println("Total SKOR pemain  : " + skorPemain);
+                break;
+            case 6:
+                double lama;
+                double hargatotal;
+                double hargaawal;
+                double hargadenda = 500;
+                double batashari = 7;
+                double hargaperhari;
+                String kategoriBuku,
+                 nama,
+                 judul;
+                System.out.println("SELAMAT DATANG DI PERPUSTAKAAN GIAN\n");
+                masukan.nextLine();
+                System.out.println("Silahkan masukan namamu = ");
+                nama = masukan.nextLine();
+
+                System.out.println("Masukan judul buku yang mau kamu pinjam = ");
+                judul = masukan.nextLine();
+                System.out.println("Masukan kategori buku yang mau kamu pinjam = ");
+                kategoriBuku = masukan.nextLine();
+                System.out.println("berapa lama kamu mau minjam (hari) = ");
+                lama = masukan.nextDouble();
+
+                double A = 2000,
+                 B = 1500,
+                 C = 100;
+                switch (kategoriBuku) {
+                    case "A":
+                        hargaperhari = A;
+                        break;
+                    case "B":
+                        hargaperhari = B;
+                        break;
+                    case "C":
+                        hargaperhari = C;
+                        break;
+
+                    default:
+                        hargaperhari = 0;
+                        System.out.println("Kategori gak ada di daftar");
+                }
+
+                hargaawal = hargaperhari * lama;
+                double dendaketerlambatan = 0;
+                double hariterlambat = 0;
+                if (lama > batashari) {
+                    hariterlambat = lama - batashari;
+                    dendaketerlambatan = hargadenda * hariterlambat;
+                }
+                hargatotal = hargaawal + dendaketerlambatan;
+                System.out.println("Nama peminjam: " + nama);
+                System.out.println("Judul buku yang dipinjam: " + judul);
+                System.out.println("kategori buku: " + kategoriBuku);
+                System.out.println("Lama peminjaman: " + lama);
+                System.out.println("Biaya peminjaman Awal: " + hargaawal);
+                System.out.println("Biaya Denda: " + dendaketerlambatan);
+                System.out.println("Biaya total: " + hargatotal);
+                break;
+
+            case 7:
+                // Meminta jumlah jenis cookies
+                System.out.print("Masukkan jumlah jenis cookies yang ingin dihitung (Maks 3): ");
+                int jumlahCookies = masukan.nextInt();
+                masukan.nextLine();
+
+                // Wadah untuk menyimpan data
+                ArrayList<String> namaCookiesList = new ArrayList<>();
+                ArrayList<Long> totalBiayaList = new ArrayList<>();
+                ArrayList<Long> totalPendapatanList = new ArrayList<>();
+                ArrayList<Long> labaRugiList = new ArrayList<>();
+
+                long totalLabaRugiKeseluruhan = 0;
+                long labaTerbesar = Long.MIN_VALUE;
+                String cookiesLabaTertinggi = "";
+
+                // Pilihan Menu Cookies yang akan digunakan di SWITCH
+                String menu = "\n" + "-".repeat(35)
+                        + "\nMenu Cookies Otomatis (Harga Tetap):"
+                        + "\n1. Chocolate Chip (H.Produksi: 8000, H.Jual: 12000)"
+                        + "\n2. Oatmeal Raisin (H.Produksi: 9000, H.Jual: 8500)"
+                        + "\n3. Butter Crunch (H.Produksi: 7500, H.Jual: 9500)"
+                        + "\n" + "-".repeat(35);
+
+                // Mengulang input dan perhitungan untuk setiap jenis cookies
+                for (int g = 0; g < jumlahCookies; g++) {
+                    System.out.println("\nCookies ke-" + (g + 1) + ":");
+                    System.out.println(menu);
+                    System.out.print("Pilih nomor cookies (1, 2, atau 3): ");
+                    int pilihan = masukan.nextInt();
+                    masukan.nextLine();
+
+                    String namaCookies = "";
+                    long hargaProduksi = 0;
+                    long hargaJual = 0;
+                    long jumlahTerjual = 0;
+                    boolean pilihanValid = true;
+
+                    // BAGIAN UTAMA SWITCH CASE (Tanpa Input Manual)
+                    switch (pilihan) {
+                        case 1: // Pilihan 1: Chocolate Chip
+                            namaCookies = "Chocolate Chip";
+                            hargaProduksi = 8000;
+                            hargaJual = 12000;
+                            break;
+                        case 2: // Pilihan 2: Oatmeal Raisin
+                            namaCookies = "Oatmeal Raisin";
+                            hargaProduksi = 9000;
+                            hargaJual = 8500;
+                            break;
+                        case 3: // Pilihan 3: Butter Crunch
+                            namaCookies = "Butter Crunch";
+                            hargaProduksi = 7500;
+                            hargaJual = 9500;
+                            break;
+                        default: // Jika salah memilih nomor (Pilihan wajib 1, 2, atau 3)
+                            System.out.println("❌ Pilihan tidak valid (harus 1, 2, atau 3). Silakan ulangi input untuk cookies ini.");
+                            pilihanValid = false;
+                            g--; // Kita kurangi i agar looping mengulang data cookies ini
+                            continue; // Langsung lanjut ke iterasi berikutnya
+                    }
+
+                    if (pilihanValid) {
+                        System.out.println("Anda memilih: " + namaCookies);
+                        // Meminta input Jumlah Terjual (Ini tetap harus diinput)
+                        System.out.print("Jumlah bungkus terjual: ");
+                        jumlahTerjual = masukan.nextLong();
+                        masukan.nextLine();
+
+                        // Lakukan perhitungan
+                        long totalBiaya = hargaProduksi * jumlahTerjual;
+                        long totalPendapatan = hargaJual * jumlahTerjual;
+                        long labaRugi = totalPendapatan - totalBiaya;
+
+                        // Masukkan data ke wadah (ArrayList)
+                        namaCookiesList.add(namaCookies);
+                        totalBiayaList.add(totalBiaya);
+                        totalPendapatanList.add(totalPendapatan);
+                        labaRugiList.add(labaRugi);
+
+                        // Hitung total laba/rugi dan laba tertinggi
+                        totalLabaRugiKeseluruhan += labaRugi;
+                        if (labaRugi > labaTerbesar) {
+                            labaTerbesar = labaRugi;
+                            cookiesLabaTertinggi = namaCookies;
+                        }
+                    }
+                }
+
+                // ... (Bagian menampilkan hasil sama seperti kode sebelumnya)
+                // 4. Menampilkan Hasil Perhitungan
+                System.out.println("\n" + "=".repeat(60));
+                System.out.println("Output Perhitungan Laba/Rugi Cookies:");
+                System.out.println("=".repeat(60));
+
+                // Judul Tabel
+                System.out.printf("%-20s | %-12s | %-14s | %-12s | %-6s\n",
+                        "Nama Cookies", "Total Biaya", "Total Pendapatan", "Laba/Rugi", "Status");
+                System.out.println("-".repeat(60));
+
+                // Menampilkan data setiap jenis cookies
+                for (int g = 0; g < namaCookiesList.size(); g++) { // Menggunakan namaCookiesList.size() karena i bisa dikurangi
+                    long labaRugi = labaRugiList.get(g);
+                    String status;
+
+                    // Menggunakan percabangan if-else untuk menentukan status
+                    if (labaRugi > 0) {
+                        status = "Laba";
+                    } else if (labaRugi < 0) {
+                        status = "Rugi";
+                    } else {
+                        status = "Impas";
+                    }
+
+                    // Menampilkan data dalam format yang rapi
+                    System.out.printf("%-20s | Rp%-10d | Rp%-12d | Rp%-10d | %-6s\n",
+                            namaCookiesList.get(g),
+                            totalBiayaList.get(g),
+                            totalPendapatanList.get(g),
+                            labaRugi,
+                            status);
+                }
+
+                System.out.println("-".repeat(60));
+
+                // Menampilkan Total Laba/Rugi Keseluruhan
+                System.out.println("Total Laba/Rugi Keseluruhan: Rp" + totalLabaRugiKeseluruhan);
+
+                // Menampilkan Cookies dengan Laba Tertinggi
+                System.out.println("Cookies dengan Laba Tertinggi: " + cookiesLabaTertinggi + " (Rp" + labaTerbesar + ")");
+                break;
+
+        }
+    }
+}
